@@ -12,6 +12,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       ELASTIC_URL: ${ELASTIC_URL}
+      SPRING_ELASTICSEARCH_URIS: "http://elasticsearch:9200"
 
   postgres:
     image: postgres:18

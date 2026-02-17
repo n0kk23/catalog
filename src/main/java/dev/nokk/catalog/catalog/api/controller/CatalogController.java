@@ -45,9 +45,9 @@ public class CatalogController {
         );
     }
 
-    @GetMapping("/search={queryName}")
+    @GetMapping("/search")
     public List<CatalogResponseDto> findByQueryName(
-            @PathVariable String queryName
+            @RequestParam("query") String queryName
     ) {
         return catalogService.findAllByQueryName(queryName).stream()
                 .map(catalogMapper::toResponse)

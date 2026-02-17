@@ -21,7 +21,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class CatalogServiceImpl implements CatalogService {
-    private final static int PAGE_SIZE = 20;
+    private static final int PAGE_SIZE = 20;
 
     private final CatalogRepository catalogRepository;
     private final CommandMapper commandMapper;
@@ -35,10 +35,10 @@ public class CatalogServiceImpl implements CatalogService {
 
     @Override
     public List<Catalog> findAllByQueryName(String queryName) {
-        List<UUID> ids = searchEngine.findIdsByName(queryName);
-        log.debug("Founded ids: {}", ids);
+        List<UUID> findIds = searchEngine.findIdsByName(queryName);
+        log.debug("Founded ids: {}", findIds);
 
-        return catalogRepository.findByIds(ids);
+        return catalogRepository.findByIds(findIds);
     }
 
     @Override

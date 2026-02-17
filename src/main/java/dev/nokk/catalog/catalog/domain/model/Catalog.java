@@ -32,7 +32,7 @@ public class Catalog {
     public Catalog changePrice(BigDecimal price) {
         Objects.requireNonNull(price, "price must be not null");
 
-        if (price.longValue() < 0) {
+        if (price.compareTo(BigDecimal.ZERO) <= 0) {
             throw new PriceMustBePositiveException(
                     "Price must be more then zero"
             );

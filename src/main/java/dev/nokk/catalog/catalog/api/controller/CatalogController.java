@@ -37,7 +37,7 @@ public class CatalogController {
     }
 
     @GetMapping("/id={id}")
-    public CatalogResponseDto findByIdOrThrow(
+    public CatalogResponseDto findById(
             @PathVariable UUID id
     ) {
         return catalogMapper.toResponse(
